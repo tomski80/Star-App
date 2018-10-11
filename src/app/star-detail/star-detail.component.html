@@ -1,0 +1,41 @@
+<h5 class="card-title text-primary">Star Name: {{star.name}}</h5>
+  <ng-container *ngIf="hasAlts()">
+    <h6 class="card-subtitle text-muted">Alternative names: 
+      <ng-container *ngFor="let alt of alts"> <span *ngIf="alt.name != star.name" class="text-info"> {{alt.name}}, </span></ng-container>
+    </h6>
+  </ng-container>
+
+  <table class="table table-sm text-info">
+    <tbody>
+      <tr>
+        <ng-container *ngIf="star.radius">
+          <th scope="row" class="text-muted">Radius (km):</th>
+          <td>{{star.radius | radiiToKm: "solar"}}</td>
+        </ng-container>
+        <ng-container *ngIf="star.age">
+          <th scope="row" class="text-muted">Age (Gy):</th>
+          <td>{{star.age}}</td>
+        </ng-container>
+      </tr>
+      <tr>
+        <ng-container *ngIf="star.temperature">
+          <th scope="row" class="text-muted">Temperature (°C):</th>
+          <td>{{star.temperature | kelvinToCelsius}}</td>
+        </ng-container>
+        <ng-container *ngIf="star.mass">
+          <th scope="row" class="text-muted">Mass (M☉):</th>
+          <td>{{star.mass}}</td>
+        </ng-container>
+      </tr>
+      <tr>
+          <ng-container *ngIf="star.distance">
+            <th scope="row" class="text-muted">Distance from Sun (ly):</th>
+            <td>{{star.distance | parsecToLy }}</td>
+          </ng-container>
+          <ng-container *ngIf="star.numberOfPlanets">
+            <th scope="row" class="text-muted">Number of Planets:</th>
+            <td>{{star.numberOfPlanets}}</td>
+          </ng-container>
+        </tr>
+    </tbody>
+  </table>

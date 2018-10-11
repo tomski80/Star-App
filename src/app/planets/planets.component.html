@@ -1,0 +1,65 @@
+<ng-container *ngIf="planets">
+  <div class="card-footer text-muted" *ngIf='star.name != "Sun"'>
+    System Exoplanets
+  </div>
+  <div class="card-footer text-muted" *ngIf='star.name == "Sun"'>
+    System Planets
+  </div>
+    <ng-container *ngFor="let planet of planets; let i=index">
+          <button *ngIf="planet.name" type="button" class="btn btn-link" [ngClass]="{'custom-active': isSelected(i,planet) }" (click)="onSelect(planet)">
+              {{planet.name}}
+          </button>
+    </ng-container>
+
+    <div class="card-body">
+    <ng-container *ngIf="selectedPlanet">
+      <table class="table table-sm text-info">
+        <tbody>
+          <tr>
+            <ng-container *ngIf="selectedPlanet.radius">
+              <th scope="row" class="text-muted">Radius (km):</th>
+              <td>{{selectedPlanet.radius | radiiToKm: "jovian"}}</td>
+            </ng-container>
+            <ng-container *ngIf="selectedPlanet.age">
+              <th scope="row" class="text-muted">Age (Gy):</th>
+              <td>{{selectedPlanet.age}} </td>
+            </ng-container>
+          </tr>
+          <tr>
+            <ng-container *ngIf="selectedPlanet.temperature">
+              <th scope="row" class="text-muted">Temperature(°C):</th>
+              <td>{{selectedPlanet.temperature | kelvinToCelsius}}</td>
+            </ng-container>
+            <ng-container *ngIf="selectedPlanet.mass">
+              <th scope="row" class="text-muted">Mass(M<sub>J</sub>):</th>
+              <td>{{selectedPlanet.mass}}</td>
+            </ng-container>
+          </tr>
+          <tr>
+              <ng-container *ngIf="selectedPlanet.discoveryMethod">
+                <th scope="row" class="text-muted">Discovery method:</th>
+                <td>{{selectedPlanet.discoveryMethod}}</td>
+              </ng-container>
+              <ng-container *ngIf="selectedPlanet.discoveryDate">
+                <th scope="row" class="text-muted">Discovery date:</th>
+                <td>{{selectedPlanet.discoveryDate | date : 'MMM d, y' }}</td>
+              </ng-container>
+           </tr>
+          <tr>
+              <ng-container *ngIf="selectedPlanet.list">
+                <th scope="row" class="text-muted" >List:</th>
+                <td colspan="3">{{selectedPlanet.list}}</td>
+              </ng-container>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card-footer text-muted" *ngIf="selectedPlanet.description">
+          <h6><strong>Description:</strong></h6>
+          <p>
+            {{selectedPlanet.description}}
+          </p>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

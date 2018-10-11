@@ -1,0 +1,70 @@
+<div class="top-margin"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="d-flex align-items-start flex-md-row justify-content-between">
+        <form class="form-inline my-2 my-lg-0" onsubmit="return false">
+            <input class="form-control mr-sm-2" placeholder="Search" value='' #inputElem (keyup.enter)="searchByName(inputElem)">
+            <button class="btn btn-outline-success" type="button" (click)="searchByName(inputElem)">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
+        <!--
+          <button class="btn btn-icon btn-outline-success" type="button" 
+          data-toggle="modal" data-target="#settings" (click)="settings()" routerLink="settings">
+            <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+          </button>
+        -->
+      </div>
+        <div class="spacing"></div>
+        <ul class="nav nav-pills" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active' : whichList === 'all'}" 
+              data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true" 
+              (click)="allSelected()">
+                All
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active' : whichList === 'withPlanet'}"
+              data-toggle="tab" href="#withplanets" role="tab" aria-controls="withplanets" aria-selected="false" 
+              (click)="withPlanetsSelected()">
+                <span *ngIf="moreThenPlanets > 1">More then {{moreThenPlanets}} Planets</span>
+                <span *ngIf="moreThenPlanets === 1">More then {{moreThenPlanets}} Planet</span>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="searchResult">
+                <a class="nav-link" [ngClass]="{'active' : whichList === 'search'}"
+                data-toggle="tab" href="#search" role="tab" aria-controls="withplanets" aria-selected="false" 
+                (click)="searchSelected()">
+                  Search Result
+                </a>
+              </li>
+          </ul>
+          
+      <ng-container >
+        <app-stars [style.display]="showListAll ? 'block' : 'none'" [whichList]="'all'" [moreThenPlanets]="moreThenPlanets"></app-stars>
+      </ng-container>
+      <ng-container >
+        <app-stars [style.display]="showListWithPlanet ? 'block' : 'none'" [whichList]="'withPlanet'" [moreThenPlanets]="moreThenPlanets"></app-stars>
+      </ng-container>    
+      <ng-container >
+        <app-search-result [style.display]="showListSearch ? 'block' : 'none'" [searchName]="searchName" [whichList]="'search'"></app-search-result>
+      </ng-container>
+      
+      <app-messages></app-messages>
+    </div>
+    <div class="col-md-7">
+
+        <div class="card" *ngIf="showInfoText">
+            <div class="card-body">
+              <h4 class="card-title">Please select Star System.</h4>
+              <p class="card-text">Select System of interest from the list to display all available details</p>
+            </div>
+          </div>
+
+        <router-outlet (activate)='onActivate()'></router-outlet>
+    </div>
+  </div> 
+</div>
+

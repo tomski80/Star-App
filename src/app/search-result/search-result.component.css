@@ -1,0 +1,13 @@
+.btn {
+	margin: 0;
+}
+
+.custom-narrow {
+	padding: 2px 10px 2px 0;
+}
+
+.btn-custom, .btn-custom:active {
+	border: 1px solid #073642;
+	outline: none;
+	outline-width: 0px;
+}

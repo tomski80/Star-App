@@ -1,0 +1,10 @@
+<div class="card mb-3" *ngIf="star">
+  <h3 class="card-header">Star System Details</h3>
+  <div class="card-body" >
+    <!-- angular component -->
+    <app-star-detail [star]="star"></app-star-detail>
+    <!--  ***************  -->
+  </div>
+  <app-planets [star]="star"></app-planets>
+</div>
+

@@ -1,0 +1,36 @@
+<table class="table table-hover">
+  <thead>
+      <tr class="table-active">
+        <th scope="col" colspan=3 class="custom-narrow">
+            <div class="btn-group d-flex justify-content-end" role="group">
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-custom" (click)="backPg()">
+                  <strong>&laquo;</strong>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-custom disabled">
+                  <strong>Page {{page+1}} of {{totalPages}}</strong>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-custom" (click)="forwardPg()">
+                  <strong>&raquo;</strong>
+                </button>
+            </div>
+        </th>
+      </tr>
+    </thead>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Distance <br>from Earth</th>
+      <th scope="col">Number<br>of Planets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let star of stars" routerLink="/stars/{{starId(star)}}">
+      <td>{{star.name}}</td>
+      <td>{{star.distance | parsecToLy }}</td>
+      <td>{{star.numberOfPlanets}}</td>
+    </tr>
+  </tbody>
+</table> 
+
+
+

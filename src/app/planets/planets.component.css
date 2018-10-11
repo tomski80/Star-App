@@ -1,0 +1,9 @@
+.btn-link:hover, .btn-link:active {
+	font-weight: 700;
+}
+
+.custom-active {
+	color: #B58900;
+	font-weight: 700;
+	text-decoration-line: underline;
+}

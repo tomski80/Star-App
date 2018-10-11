@@ -1,0 +1,35 @@
+h1 {
+	margin: 1em 0;
+}
+
+.top-margin {
+	margin: 30px 0;
+}
+
+.spacing {
+	margin: 10px 0;
+}
+
+form {
+	display: inline;
+}
+
+.custom-padding {
+	padding: 8px;
+}
+
+.btn-icon {
+	border: none;
+}
+
+.btn-icon:hover {
+	border: none;
+}
+
+.nav-link {
+	border: 1px solid #083946;
+}
+
+.tab-pane {
+	display: inline;
+}

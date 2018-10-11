@@ -1,0 +1,7 @@
+<ng-container *ngIf="messageService.messages.length">
+  <div class="card text-white bg-warning mb-3" style="max-width: 30rem;">
+    <div class="card-body">
+        <div *ngFor='let message of messageService.messages'> <span class="card-text"><em>{{message}}</em></span> </div>
+    </div>
+  </div>
+</ng-container>
