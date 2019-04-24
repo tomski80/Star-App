@@ -13,7 +13,7 @@ export class StarsService {
 
   stars: object[];
 
-  private rootUri = encodeURI('http://webdevelopertest.playfusionservices.com/webapptest');
+  private rootUri = encodeURI('https://webdevelopertest.playfusionservices.com/webapptest');
 
   constructor(private http: HttpClient,
               private messageService: MessageService) { }
