@@ -1,5 +1,8 @@
 # PlayfusionStars
 
+Job application test / done over weekend.
+It is simple App that display egzoplanetary systems details, interacting with REST API made with spring.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
 
 ## Development server
